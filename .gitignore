@@ -1,0 +1,13 @@
+# Editors config
+.idea
+*.sublime*
+.vscode
+debug.log
+
+# Packages
+node_modules/
+
+# Other
+*.log*
+.DS_Store
+Thumbs.db

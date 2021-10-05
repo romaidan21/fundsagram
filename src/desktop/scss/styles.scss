@@ -1,12 +1,25 @@
 // Normalize
 @import "normalize.css";
 
-// Mixins
-@import "include/mixins";
-
-// Functions
+//Components
 @import "include/functions";
+@import "include/components/variables";
+@import "include/components/fonts";
+@import "include/components/mixins"; 
+@import "include/components/general"; 
 
 //Layout
 @import "include/layout/header";
+
+//Page
+@import "include/pages/home"; 
   
+*,
+// *:focus,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}

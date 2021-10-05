@@ -1,0 +1,20 @@
+button, .button{
+    background: $button;
+    border: none;
+    font-family: $montserrat-bold;
+    font-size: px2vw(16);
+    padding: px2vw(15) px2vw(77);
+    color: $white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+body{
+    color: $white;
+    font-family: $lato-r;
+}

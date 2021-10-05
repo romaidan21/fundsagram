@@ -1,0 +1,28 @@
+.welcome{
+    margin-top: clamp(60px, px2vw(80), 100px);
+    height: px2vw(600);
+    width: 100%;
+    background: url('../img/bg/welcome.png') center/contain no-repeat;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    p{
+        margin: px2vw(20) 0;
+    }
+
+    .years-50{
+        position: absolute;
+        top: px2vw(68);
+        right: px2vw(404);
+        width: px2vw(173);
+        height: px2vw(173);
+        background: url('../img/50.svg') center/contain no-repeat;
+
+    }
+}
+
+
+.padding{
+    padding: 0 px2vw(390);
+}

@@ -1,5 +1,36 @@
-.padding {
-    padding: 0 px2vw(390);
+.pd-l {
+    padding-left: px2vw(390);
+}
+.pd-r {
+    padding-right: px2vw(390);
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background: $black;
+    display: block;
+    margin: px2vw(20) 0 px2vw(26);
+}
+
+.circle-icon {
+    width: px2vw(196);
+    height: px2vw(196);
+    position: relative;
+
+    .i {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .c {
+        display: block;
+        position: absolute;
+        width: 123%;
+        height: 123%;
+        border-radius: 50%;
+        border: 1px solid $white;
+    }
 }
 
 .welcome {
@@ -89,14 +120,6 @@
     display: flex;
     flex-direction: column;
 
-    .l {
-        width: 100%;
-        height: 1px;
-        background: $black;
-        display: block;
-        margin: px2vw(20) 0 px2vw(26);
-    }
-
     .column {
         display: flex;
 
@@ -109,7 +132,7 @@
 
             p {
                 font-size: px2vw(28);
-                font-weight: bold;
+                font-weight: 500;
                 margin: px2vw(95) 0 0 px2vw(95);
             }
         }
@@ -127,8 +150,8 @@
                 display: flex;
                 align-items: center;
 
-                &::before{
-                    content: '';
+                &::before {
+                    content: "";
                     display: block;
                     width: px2vw(24);
                     height: px2vw(24);
@@ -137,8 +160,143 @@
                     background: url("../img/d.svg") center/contain no-repeat;
                     margin-right: px2vw(20);
                 }
-
             }
         }
     }
+}
+
+.preparing {
+    padding-top: px2vw(150);
+    padding-bottom: px2vw(250);
+
+    .text-block {
+        display: flex;
+        flex-direction: column;
+
+        .icon {
+            width: 100%;
+            height: px2vw(250);
+            background: url("../img/bg/bg2.png") center/contain no-repeat;
+            display: flex;
+            align-items: center;
+
+            p {
+                font-size: px2vw(28);
+                font-weight: 500;
+                margin: 0 0 0 px2vw(95);
+            }
+        }
+
+        .text {
+            display: flex;
+            justify-content: space-between;
+            margin-top: px2vw(25);
+
+            p {
+                width: 47%;
+                color: #151619;
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+.gold {
+    display: flex;
+
+    &__dark {
+        background: #212121;
+        padding-top: px2vw(135);
+        width: 50%;
+        // padding-right: px2vw(75);
+
+        .text {
+            display: flex;
+
+            .circle-icon {
+                margin-right: px2vw(18);
+                transform: translateY(33%);
+
+                .i{
+                    background: url("../img/bg/circle1.png") center/contain no-repeat;
+                }
+
+                .c{
+                    top: 30%;
+                    left: 30%;
+                    z-index: -1;
+                }
+            }
+        }
+
+        h2 {
+            color: $white;
+        }
+    }
+    &__gray {
+        background: #e9e9e9;
+        padding-top: px2vw(135);
+        padding-bottom: px2vw(135);
+        width: 50%;
+        padding-left: px2vw(115);
+
+        p {
+            color: #151619;
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.our-site{
+    padding-top: px2vw(180);
+
+    .text-block{
+        text-align: center;
+
+        .columns{
+            width: 100%;
+            display: flex;
+            border: 1px solid #212121;
+            margin-top: px2vw(-20);
+            background: $white;
+            // margin-bottom: -40px;
+            transform: translateY(px2vw(60));
+
+            .column{
+                flex: 1;
+                padding: px2vw(130) px2vw(40) px2vw(90);
+
+                &:not(:last-of-type){
+                    border-right: 1px solid #212121;
+                }
+
+                h4{
+                    color: #252525;
+                    text-transform: uppercase;
+                }
+
+                .l{
+                    height: 1px;
+                    width: px2vw(90);
+                    background: #252525;
+                    margin: px2vw(22) auto;
+                    display: block;
+                }
+                p{
+                    color: #252525;
+                }
+            }
+        }
+    }
+}
+
+.diversify{
+    background: #212121;
+    height: 50vh;
 }

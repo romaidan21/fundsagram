@@ -1,12 +1,15 @@
-button, .button{
-    background: $button;
+button {
+    background: none;
     border: none;
     font-family: $montserrat-bold;
-    font-size: px2vw(16);
-    padding: px2vw(15) px2vw(77);
+    font-size: clamp(10px, px2vw(16), 20px);
     color: $white;
     text-transform: uppercase;
     cursor: pointer;
+}
+.button{
+    background: $button;
+    padding: px2vw(15) px2vw(77);
 }
 
 a{
@@ -14,7 +17,8 @@ a{
 
 }
 
-body{
+body, html{
     color: $white;
     font-family: $lato-r;
+    @include no-scrollbar;
 }

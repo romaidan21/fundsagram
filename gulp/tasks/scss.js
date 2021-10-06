@@ -2,7 +2,7 @@ module.exports = function () {
 
     const postcssPlugins = {
         development: [$.postcssImport, $.autoPrefixer],
-        production: [$.postcssImport, $.autoPrefixer, $.webpInCss, $.cssnano({ preset: 'advanced' })]
+        production: [$.postcssImport, $.autoPrefixer, $.cssnano({ preset: 'advanced' })]
     };
 
     const compileScss = (mode, device) => {

@@ -11,10 +11,12 @@ button {
     background: $button;
     padding: px2vw(15) px2vw(77);
     transition: .3s ease;
+    border: 1px solid transparent;
 
     &:hover{
         color: $button;
         background: $white;
+        border-color: $button;
     }
 }
 

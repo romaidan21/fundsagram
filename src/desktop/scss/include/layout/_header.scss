@@ -185,12 +185,12 @@
                 min-width: 350px;
                 background: #f4f4f4;
                 border: 1px solid #000000;
-                margin-bottom: px2vw(15);
+                margin-bottom: clamp(15px, px2vw(15), 25px);
                 height: px2vw(40);
-                min-height: 30px;
+                min-height: 35px;
                 position: relative;
                 display: flex;
-                align-items: center;
+                align-items: center; 
 
                 input {
                     width: 100%;
@@ -266,6 +266,143 @@
     overflow: hidden;
 
     .form_pop-up {
+        pointer-events: auto;
+        opacity: 1;
+    }
+}
+
+.send_pop-up {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .3s ease;
+    background-color: #23232380;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+
+    .send {
+        background: $white;
+        display: flex;
+        flex-direction: column;
+        padding: px2vw(70) px2vw(80);
+        position: relative;
+        text-align: center;
+
+        h2 {
+            font-size: px2vw(18);
+            text-transform: none;
+        }
+
+        p{
+            color: #232323;
+            margin: px2vw(22) 0 px2vw(40);
+        }
+
+        .btn{
+            display: flex;
+            justify-content: space-between;
+            width: px2vw(370);
+            min-width: 350px;
+
+            .b{
+                font-size: clamp(12px, px2vw(18), 22px);
+                width: 47%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: px2vw(15) 0;
+                text-transform: none;
+                border: 1px solid transparent;
+                transition: .3s ease;
+                color: $white;
+                font-family: $montserrat-bold;
+
+                .i{
+                    width: px2vw(24);
+                    height: px2vw(24);
+                    min-width: 20px;
+                    min-height: 20px;
+                    margin-right: px2vw(16);
+
+                    svg{
+                        width: 100%;
+                        height: 100%;
+
+                        path{
+                            transition: .3s ease;
+                        }
+                    }
+
+                }
+
+                &.wt{
+                    background: #66D17E;
+
+                    &:hover{
+                        color: #66D17E;
+                        background-color: transparent;
+                        border-color:  #66D17E;
+    
+                        svg path{
+                            fill: #66D17E;
+                        }
+                    }
+                }
+                &.tg{
+                    background: #70BDF4;
+
+                    &:hover{
+                        color: #70BDF4;
+                        background-color: transparent;
+                        border-color:  #70BDF4;
+    
+                        svg path{
+                            fill: #70BDF4;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .close{
+            position: absolute;
+            top: px2vw(20);
+            right: px2vw(30);
+            width: px2vw(24);
+            height: px2vw(24);
+            min-width: 20px;
+            min-height: 20px;
+            cursor: pointer;
+
+            svg {
+                width: 100%;
+                height: 100%;
+
+                path {
+                    transition: 0.3s ease;
+                }
+            }
+
+            &:hover {
+                svg path {
+                    stroke: $button;
+                }
+            }
+        }
+    }
+}
+
+.openSendPopUp{
+    overflow: hidden;
+
+    .send_pop-up {
         pointer-events: auto;
         opacity: 1;
     }

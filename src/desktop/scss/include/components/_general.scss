@@ -10,6 +10,12 @@ button {
 .button{
     background: $button;
     padding: px2vw(15) px2vw(77);
+    transition: .3s ease;
+
+    &:hover{
+        color: $button;
+        background: $white;
+    }
 }
 
 a{
@@ -21,4 +27,17 @@ body, html{
     color: $white;
     font-family: $lato-r;
     @include no-scrollbar;
+}
+
+
+.hover{
+    transition: .3s ease;
+
+    &:hover{
+        color: $button !important;
+
+        svg path{
+            fill: $button;
+        }
+    }
 }

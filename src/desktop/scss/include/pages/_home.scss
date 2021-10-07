@@ -17,6 +17,7 @@
     width: px2vw(196);
     height: px2vw(196);
     position: relative;
+    z-index: 2;
 
     .i {
         width: 100%;
@@ -30,6 +31,7 @@
         height: 123%;
         border-radius: 50%;
         border: 1px solid $white;
+        z-index: -1;
     }
 }
 
@@ -181,7 +183,7 @@
             align-items: center;
 
             p {
-                font-size: px2vw(28);
+                font-size: px2vw(24);
                 font-weight: 500;
                 margin: 0 0 0 px2vw(95);
             }
@@ -193,8 +195,14 @@
             margin-top: px2vw(25);
 
             p {
-                width: 47%;
                 color: #151619;
+
+                &:first-child {
+                    width: 46%;
+                }
+                &:last-child {
+                    width: 49%;
+                }
 
                 span {
                     font-weight: 700;
@@ -210,7 +218,7 @@
     &__dark {
         background: #212121;
         padding-top: px2vw(135);
-        width: 50%;
+        width: px2vw(950);
         // padding-right: px2vw(75);
 
         .text {
@@ -218,16 +226,15 @@
 
             .circle-icon {
                 margin-right: px2vw(18);
-                transform: translateY(33%);
+                transform: translateY(35%);
 
-                .i{
+                .i {
                     background: url("../img/bg/circle1.png") center/contain no-repeat;
                 }
 
-                .c{
-                    top: 30%;
-                    left: 30%;
-                    z-index: -1;
+                .c {
+                    top: 32%;
+                    left: 31%;
                 }
             }
         }
@@ -239,8 +246,8 @@
     &__gray {
         background: #e9e9e9;
         padding-top: px2vw(135);
-        padding-bottom: px2vw(135);
-        width: 50%;
+        padding-bottom: px2vw(96);
+        width: px2vw(970);
         padding-left: px2vw(115);
 
         p {
@@ -253,13 +260,13 @@
     }
 }
 
-.our-site{
+.our-site {
     padding-top: px2vw(180);
 
-    .text-block{
+    .text-block {
         text-align: center;
 
-        .columns{
+        .columns {
             width: 100%;
             display: flex;
             border: 1px solid #212121;
@@ -268,27 +275,27 @@
             // margin-bottom: -40px;
             transform: translateY(px2vw(60));
 
-            .column{
+            .column {
                 flex: 1;
-                padding: px2vw(130) px2vw(40) px2vw(90);
+                padding: px2vw(116) px2vw(40) px2vw(80);
 
-                &:not(:last-of-type){
+                &:not(:last-of-type) {
                     border-right: 1px solid #212121;
                 }
 
-                h4{
+                h4 {
                     color: #252525;
                     text-transform: uppercase;
                 }
 
-                .l{
+                .l {
                     height: 1px;
                     width: px2vw(90);
                     background: #252525;
                     margin: px2vw(22) auto;
                     display: block;
                 }
-                p{
+                p {
                     color: #252525;
                 }
             }
@@ -296,7 +303,64 @@
     }
 }
 
-.diversify{
+.diversify {
     background: #212121;
-    height: 50vh;
+    padding-top: px2vw(210);
+    padding-bottom: px2vw(190);
+
+    .text-block {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .text {
+            position: absolute;
+
+            &-left {
+                left: 0;
+
+                h2 {
+                    color: $white;
+                    margin-bottom: px2vw(16);
+                }
+            }
+            &-right {
+                right: 0;
+                p {
+                    font-size: px2vw(24);
+                    margin-bottom: px2vw(20);
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        width: px2vw(41);
+                        height: px2vw(41);
+                        min-height: 25px;
+                        min-width: px2vw(25);
+                        background: url("../img/arr.svg") center/contain no-repeat;
+                        display: block;
+                        position: absolute;
+                        right: 100%;
+                        margin-right: px2vw(25);
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+
+        .circle-icon {
+            .i {
+                background: url("../img/bg/circle2.png") center/contain no-repeat;
+            }
+
+            .c {
+                left: 21%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
 }

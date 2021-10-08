@@ -4,11 +4,16 @@ footer {
     display: flex;
     flex-direction: column;
 
+    @include sm{
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
     .logo {
         align-self: center;
 
         p {
-            font-size: px2vw(30);
+            font-size:  clamp(16px, px2vw(30), 26px);
             font-family: $roboto-b;
         }
     }
@@ -16,6 +21,10 @@ footer {
     .line {
         background: $white;
         margin: px2vw(17) 0;
+
+        @include sm{
+            margin: 15px;
+        }
     }
 
     nav {
@@ -24,11 +33,25 @@ footer {
         padding: 0 px2vw(90);
         margin-bottom: px2vw(80);
 
+        @include sm{
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
         a {
             font-size: clamp(12px, px2vw(14), 22px);
             color: $white;
             padding: 2px 5px;
             text-transform: uppercase;
+
+            @include sm{
+                text-align: center; 
+                font-size: 14px;
+                padding: 5px;
+                margin: 10px 0;
+
+            }
         }
     }
 
@@ -36,6 +59,11 @@ footer {
         display: flex;
         justify-content: space-between;
         padding: 0 px2vw(90);
+
+        @include sm{
+            flex-direction: column;
+            padding: 0 10px 0 30px;
+        }
         a,
         p {
             color: $white;
@@ -44,6 +72,10 @@ footer {
 
         div {
             position: relative;
+
+            @include sm{
+                margin-bottom: 15px;
+            }
 
             &::before {
                 content: "";
@@ -56,6 +88,13 @@ footer {
                 top: 0;
                 left: px2vw(-28);
                 transform: translateX(-100%);
+
+                @include sm{
+                    top: 50%;
+                    transform: translate(-100%, -50%);
+                    left: -12px;
+
+                }
             }
 
             &.num::before{
@@ -71,12 +110,21 @@ footer {
     }
 
     .current{
-        font-size: px2vw(20);
+        font-size: clamp(16px, px2vw(20), 26px);
         font-family: $roboto-b;
         margin: px2vw(48) 0 px2vw(37);
+
+        @include sm{
+            margin: 30px 0 15px;
+        }
     }
 
     .copyright{
         margin: px2vw(40) 0 px2vw(30);
+
+        @include sm{
+            margin-top: 50px;
+            font-size: 12px;
+        }
     }
 }

@@ -2,7 +2,7 @@ button {
     background: none;
     border: none;
     font-family: $montserrat-bold;
-    font-size: clamp(10px, px2vw(16), 20px);
+    font-size: clamp(12px, px2vw(16), 20px);
     color: $white;
     text-transform: uppercase;
     cursor: pointer;
@@ -12,6 +12,12 @@ button {
     padding: px2vw(15) px2vw(77);
     transition: .3s ease;
     border: 1px solid transparent;
+
+    @include sm {
+        width: 100%;
+        max-width: 300px;
+        padding: 15px 50px;
+    }
 
     &:hover{
         color: $button;
@@ -29,6 +35,12 @@ body, html{
     color: $white;
     font-family: $lato-r;
     @include no-scrollbar;
+
+    @include sm{
+        br{
+            display: none;
+        }
+    }
 }
 
 

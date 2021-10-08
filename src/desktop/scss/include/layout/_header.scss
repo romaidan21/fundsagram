@@ -13,7 +13,7 @@
     .logo,
     .tell {
         font-family: $montserrat-bold;
-        font-size: px2vw(24);
+        font-size: clamp(14px, px2vw(24), 28px);
         color: #232323;
     }
 
@@ -21,11 +21,18 @@
         display: flex;
         align-items: center;
 
-        span {
+        .i {
             width: px2vw(30);
             height: px2vw(30);
+            min-width: 20px;
+            min-height: 20px;
             margin-right: px2vw(20);
             display: inline-block;
+
+            @include sm{
+                margin-right: 20px;
+
+            }
 
             svg {
                 width: 100%;
@@ -34,6 +41,11 @@
                 path {
                     transition: 0.3s ease;
                 }
+            }
+        }
+        .t{
+            @include sm{
+                display: none;
             }
         }
     }
@@ -51,10 +63,16 @@
 
         span {
             width: px2vw(77);
+            min-width: 30px;
             height: 2px;
             background: #232323;
             margin: px2vw(5) 0;
             transition: 0.3s ease;
+
+            @include md-2{
+                margin: 2px 0;
+            }
+
         }
 
         &:hover span {
@@ -84,14 +102,32 @@
         transform: translateX(100%);
         transition: 0.5s ease;
 
+        @include sm{
+            width: 100%;
+            transform: none;
+            opacity: 0;
+            padding: 60px 12vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         nav {
             display: flex;
             flex-direction: column;
             max-width: px2vw(368);
+            min-width: 300px;
+
+            @include sm{
+                max-width: 100%;
+                min-width: auto;
+                align-items: center;
+                text-align: center;
+            }
 
             a {
                 color: #232323;
-                font-size: px2vw(30);
+                font-size: clamp(14px, px2vw(30), 42px);
                 font-family: $montserrat-bold;
                 text-transform: uppercase;
                 padding: px2vw(20) 0;
@@ -103,6 +139,10 @@
 
             .button {
                 margin-top: px2vw(26);
+
+                @include sm{
+                    margin-top: 30px;
+                }
             }
         }
 
@@ -116,6 +156,16 @@
             min-width: 25px;
             cursor: pointer;
             transform: translateY(-100%);
+
+            @include md-2{
+                right: 13vw;
+            }
+
+            @include sm{
+                right: 12vw;
+                top: 30px;
+                transform: none;
+            }
 
             svg {
                 width: 100%;
@@ -142,8 +192,18 @@
         background-color: #23232380;
         pointer-events: auto;
 
+        @include sm{
+            background-color: transparent;
+        }
+
+
+
         .menu {
             transform: translateX(0);
+
+            @include sm{
+                opacity: 1;
+            }
         }
     }
 }
@@ -157,7 +217,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
     background-color: #23232380;
     z-index: 1001;
     pointer-events: none;
@@ -170,15 +230,33 @@
         padding: px2vw(70) px2vw(80);
         position: relative;
 
+        @include sm{
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            padding: 0 12vw;
+            align-items: center;
+        }
+
         h2 {
-            font-size: px2vw(18);
+            font-size: clamp(16px, px2vw(18), 24px);
             text-align: center;
             margin-bottom: px2vw(20);
+
+            @include sm{
+                margin-bottom: 15px;
+            }
         }
 
         form {
             display: flex;
             flex-direction: column;
+
+            @include sm{
+                width: 100%;
+                max-width: 300px;
+
+            }
 
             label {
                 width: px2vw(370);
@@ -190,7 +268,14 @@
                 min-height: 35px;
                 position: relative;
                 display: flex;
-                align-items: center; 
+                align-items: center;
+
+                @include sm{
+                    width: 100%;
+                    min-width: auto;
+                    margin-bottom: 20px;
+                    min-height: 40px;
+                }
 
                 input {
                     width: 100%;
@@ -200,41 +285,51 @@
                     @extend p;
                     padding: 0 15px;
                     color: #151619;
-                    &::placeholder{
-                    color: #828282;
-                    font-family: $lato-r;
-                    font-size: clamp(12px, px2vw(14), 16px);
+
+                    &::placeholder {
+                        color: #828282;
+                        font-family: $lato-r;
+                        font-size: clamp(12px, px2vw(14), 16px);
+                    }
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
                     }
                 }
 
-                input[type=file]{
+                input[type="file"] {
                     visibility: hidden;
                     cursor: pointer;
                     position: absolute;
                 }
 
-                &.file{
+                input[type="number"] {
+                    -moz-appearance: textfield;
+                }
+
+                &.file {
                     cursor: pointer;
                 }
 
-                .ph{
+                .ph {
                     color: #828282;
                     font-family: $lato-r;
                     font-size: clamp(12px, px2vw(14), 16px);
                     padding: 0 15px;
                 }
-
             }
             .button {
                 position: relative;
-                input{
+                input {
                     position: absolute;
                     visibility: hidden;
                 }
             }
         }
 
-        .close{
+        .close {
             position: absolute;
             top: px2vw(20);
             right: px2vw(30);
@@ -243,6 +338,11 @@
             min-width: 20px;
             min-height: 20px;
             cursor: pointer;
+
+            @include sm{
+                right: 12vw;
+                top: 30px;
+            }
 
             svg {
                 width: 100%;
@@ -280,7 +380,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
     background-color: #23232380;
     z-index: 1001;
     pointer-events: none;
@@ -294,23 +394,41 @@
         position: relative;
         text-align: center;
 
+        @include sm{
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            padding: 0 12vw;
+        }
+
         h2 {
-            font-size: px2vw(18);
+            font-size: clamp(16px, px2vw(18), 24px) ;
             text-transform: none;
         }
 
-        p{
+        p {
             color: #232323;
             margin: px2vw(22) 0 px2vw(40);
+
+            @include sm{
+                margin: 30px 0 10px;
+            }
         }
 
-        .btn{
+        .btn {
             display: flex;
             justify-content: space-between;
             width: px2vw(370);
             min-width: 350px;
 
-            .b{
+            @include sm{
+                flex-direction: column;
+                align-items: center;
+                min-width: auto;
+                width: auto;
+            }
+
+            .b {
                 font-size: clamp(12px, px2vw(18), 22px);
                 width: 47%;
                 display: flex;
@@ -319,59 +437,64 @@
                 padding: px2vw(15) 0;
                 text-transform: none;
                 border: 1px solid transparent;
-                transition: .3s ease;
+                transition: 0.3s ease;
                 color: $white;
                 font-family: $montserrat-bold;
 
-                .i{
+                @include sm{
+                    width: 100%;
+                    max-width: 300px;
+                    padding: 10px;
+                    margin: 10px 0;
+                }
+
+                .i {
                     width: px2vw(24);
                     height: px2vw(24);
                     min-width: 20px;
                     min-height: 20px;
                     margin-right: px2vw(16);
 
-                    svg{
+                    svg {
                         width: 100%;
                         height: 100%;
 
-                        path{
-                            transition: .3s ease;
-                        }
-                    }
-
-                }
-
-                &.wt{
-                    background: #66D17E;
-
-                    &:hover{
-                        color: #66D17E;
-                        background-color: transparent;
-                        border-color:  #66D17E;
-    
-                        svg path{
-                            fill: #66D17E;
+                        path {
+                            transition: 0.3s ease;
                         }
                     }
                 }
-                &.tg{
-                    background: #70BDF4;
 
-                    &:hover{
-                        color: #70BDF4;
+                &.wt {
+                    background: #66d17e;
+
+                    &:hover {
+                        color: #66d17e;
                         background-color: transparent;
-                        border-color:  #70BDF4;
-    
-                        svg path{
-                            fill: #70BDF4;
+                        border-color: #66d17e;
+
+                        svg path {
+                            fill: #66d17e;
+                        }
+                    }
+                }
+                &.tg {
+                    background: #70bdf4;
+
+                    &:hover {
+                        color: #70bdf4;
+                        background-color: transparent;
+                        border-color: #70bdf4;
+
+                        svg path {
+                            fill: #70bdf4;
                         }
                     }
                 }
             }
         }
 
-
-        .close{
+        .close {
             position: absolute;
             top: px2vw(20);
             right: px2vw(30);
@@ -380,6 +503,11 @@
             min-width: 20px;
             min-height: 20px;
             cursor: pointer;
+
+            @include sm{
+                right: 12vw;
+                top: 30px;
+            }
 
             svg {
                 width: 100%;
@@ -399,7 +527,7 @@
     }
 }
 
-.openSendPopUp{
+.openSendPopUp {
     overflow: hidden;
 
     .send_pop-up {
